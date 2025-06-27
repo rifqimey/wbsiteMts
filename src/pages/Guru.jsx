@@ -13,7 +13,7 @@ const Guru = () => {
   const fetchTeachers = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("http://localhost:8000/teacher", {
+      const response = await axios.get("http://192.168.112.240:8000/teacher", {
         params: {
           search: searchTerm,
           limit: 6,
@@ -42,19 +42,20 @@ const Guru = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-gray-100 p-8 mt-10">
+      <div className="bg-white p-8 mt-10">
         {/* Search Bar */}
-        <div className="flex justify-center mb-6">
-          <div className="relative w-full max-w-lg">
+        <div className="flex flex-col items-end mb-6 mt-10">
+          <div className="relative w-full max-w-xs">
             <input
               type="text"
-              placeholder="Cari guru..."
-              className="w-full px-10 py-4 pr-12 rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 bg-white"
+              placeholder="Search Teacher"
+              className="w-full px-10 py-3 pr-10 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 bg-gray-50"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-green-600" />
+            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
+          <div className="w-full border-b-2 border-gray-200 mt-6 mb-6"></div>
         </div>
 
         {/* Loading Indicator or Error Message */}
@@ -72,29 +73,36 @@ const Guru = () => {
               {teachers.length > 0 ? (
                 teachers.map((teacher) => (
                   <div
-                    key={teacher.id || teacher.nip}
-                    className="bg-white border border-gray-300 shadow-xl rounded-xl overflow-hidden text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                    key={teacher.id || teacher.nuptk}
+                    className="bg-white border border-gray-300 shadow-xl rounded-lg overflow-hidden text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                   >
+                    {/* Foto Guru */}
                     <img
                       src={teacher.image || "https://via.placeholder.com/150"}
                       alt={teacher.nama || "Gambar tidak tersedia"}
-                      className="w-32 h-32 object-cover mt-6 mx-auto rounded-full border-4 border-green-500"
+                      className="w-28 h-32 object-cover mt-6 mx-auto border-2 border-gray-300 rounded-md"
                     />
-                    <div className="w-full px-6 py-4 text-left space-y-3">
-                      <div className="flex items-center">
-                        <h2 className="font-semibold text-lg text-gray-700 w-28">Nama</h2>
-                        <p className="text-gray-600 text-sm flex-1">{teacher.nama || "Tidak tersedia"}</p>
+
+                    {/* Informasi Guru */}
+                    <div className="w-full px-6 py-4 text-left space-y-2">
+                      <div className="flex">
+                        <h2 className="font-semibold text-black w-24">Nama</h2>
+                        <span className="font-medium text-black">:</span>
+                        <p className="text-black flex-1 ml-2">{teacher.nama || "Tidak tersedia"}</p>
                       </div>
-                      <div className="flex items-center">
-                        <h2 className="font-semibold text-lg text-gray-700 w-28">NIP</h2>
-                        <p className="text-gray-600 text-sm flex-1">{teacher.nip || "Tidak tersedia"}</p>
+                      <div className="flex">
+                        <h2 className="font-semibold text-black w-24">Nuptk</h2>
+                        <span className="font-medium text-black">:</span>
+                        <p className="text-black flex-1 ml-2">{teacher.nuptk || "Tidak tersedia"}</p>
                       </div>
-                      <div className="flex items-center">
-                        <h2 className="font-semibold text-lg text-gray-700 w-28">Pelajaran</h2>
-                        <p className="text-gray-600 text-sm flex-1">{teacher.pelajaran || "Tidak tersedia"}</p>
+                      <div className="flex">
+                        <h2 className="font-semibold text-black w-24">Pelajaran</h2>
+                        <span className="font-medium text-black">:</span>
+                        <p className="text-black flex-1 ml-2">{teacher.pelajaran || "Tidak tersedia"}</p>
                       </div>
                     </div>
                   </div>
+
                 ))
               ) : (
                 <div className="text-center col-span-4">

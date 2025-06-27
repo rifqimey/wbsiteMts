@@ -6,6 +6,7 @@ import { FaDownload } from "react-icons/fa"; // Import download icon from react-
 import "react-toastify/dist/ReactToastify.css"; // Style for Toastify
 import axios from "axios"; // Import axios for sending data to backend
 
+
 const Pendaftaran = () => {
   const [formData, setFormData] = useState({
     namaLengkap: "",
@@ -79,7 +80,7 @@ const Pendaftaran = () => {
         <a
           href="/file/formPendaftaran.pdf"
           download
-          className="text-white font-semibold hover:text-gray-300 transition-all duration-300"
+          className="text-white font-bold transition-all duration-300"
         >
           Unduh Form
         </a>
@@ -87,7 +88,7 @@ const Pendaftaran = () => {
 
       {/* Registration Instructions */}
       <div className="py-8 px-6 shadow-xl rounded-lg w-4/5 mx-auto my-10 bg-white">
-        <h2 className="text-2xl font-bold text-center mb-6 text-green-600">
+        <h2 className="text-2xl font-extrabold text-center mb-6 text-green-600">
           Tata Cara Pendaftaran
         </h2>
         <ol className="list-decimal list-inside text-left text-gray-700 text-lg space-y-3">
@@ -97,7 +98,7 @@ const Pendaftaran = () => {
             form <b className=" text-green-500">Unduh form</b> di kiri atas.
           </li>
           <li>
-            Siapkan dokumen pendukung seperti fotokopi KTP, kartu keluarga, dan
+            Siapkan dokumen pendukung seperti fotokopi kartu keluarga, dan
             ijazah terakhir.
           </li>
           <li>Serahkan formulir yang sudah didownload ke sekolah.</li>
@@ -111,7 +112,7 @@ const Pendaftaran = () => {
           onSubmit={handleSubmit}
           className="p-8 shadow-2xl rounded-lg w-full max-w-screen-sm mx-auto bg-white"
         >
-          <h2 className="text-3xl font-bold my-8 mb-8 text-center text-green-600">
+          <h2 className="text-3xl font-extrabold my-8 mb-8 text-center text-green-600">
             Formulir Pendaftaran
           </h2>
           <div className="space-y-6 text-left">
@@ -147,12 +148,11 @@ const Pendaftaran = () => {
                 Jenis Kelamin
               </label>
               <select
-                name="jenisKelamin"
+                name="jenisKelamin" 
                 value={formData.jenisKelamin}
                 onChange={handleChange}
                 className="w-2/3 p-3 border-2 border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300 transform hover:scale-105"
               >
-                <option value="">Pilih Jenis Kelamin</option>
                 <option value="Laki-Laki">Laki-Laki</option>
                 <option value="Perempuan">Perempuan</option>
               </select>
@@ -203,12 +203,43 @@ const Pendaftaran = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-12">
               <button
                 type="submit"
-                className="bg-green-600 font-semibold text-lg text-white py-3 px-8 rounded-lg shadow-md hover:bg-green-700 transition duration-300 transform hover:scale-105"
+                className="
+      relative
+      px-10 py-3
+      rounded-full
+      bg-gradient-to-r from-green-400 via-green-500 to-green-600
+      text-white font-semibold text-lg
+      shadow-lg
+      overflow-hidden
+      transition
+      duration-500
+      ease-in-out
+      hover:scale-105
+      hover:shadow-2xl
+      focus:outline-none
+      before:absolute before:inset-0 before:bg-white/20 before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-30
+    "
               >
-                Daftar
+                <span className="relative z-10 flex items-center gap-3">
+                  Daftar Sekarang
+                  <svg
+                    className="w-5 h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
               </button>
             </div>
           </div>

@@ -5,10 +5,10 @@ import Navbar from "./components/Navbar";
 
 const Profile = () => {
   const slides = [
-    { src: "/images/bgHome.jpg", label: "Aula Sekolah" },
-    { src: "/images/kantin.png", label: "Kantin" },
-    { src: "/images/smpn1.png", label: "SMPN 1 Cibadak" },
-    { src: "/images/halaman.png", label: "Halaman" },
+    { src: "/images/lampiran05.jpg", label: "Masjid" },
+    { src: "/images/lab.jpeg", label: "Lab Komputer" },
+    { src: "/images/pramuka.jpg", label: "Pramuka" },
+    { src: "/images/halaman.jpg", label: "Halaman" },
   ];
 
   const settings = {
@@ -84,6 +84,21 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <div className="w-full px-6 lg:px-20 py-10">
+        <h2 className="text-2xl font-bold text-center text-green-600 mb-6">
+          Struktur Organisasi
+        </h2>
+        <div className="flex justify-center">
+          <div className="w-[95%] max-w-7xl rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-white p-4">
+            <img
+              src="/images/struktur.png"
+              alt="Struktur Organisasi MTs Miftahul Anwar"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+
+      </div>
 
       {/* Content Section */}
       <div className="flex flex-wrap lg:flex-nowrap w-full max-w-6xl mx-auto py-10">
@@ -98,11 +113,8 @@ const Profile = () => {
             Jl. Slamet Ridwan, Negeri Sari, Selagai Lingga - Lampung Tengah <br />
             34671
           </p>
-          <h3 className="font-bold text-lg text-center text-green-600">Website/Email</h3>
-          <p className="text-center mb-6">smptncibadak.schl.id</p>
-          <p className="text-center mb-6">smptncibad_kabsi@yahoo.com</p>
-          <h3 className="font-bold text-lg text-center text-green-600">No. Telp</h3>
-          <p className="text-center">(0266) 531333</p>
+          <h3 className="font-bold text-lg text-center text-green-600">NPSN</h3>
+          <p className="text-center">10816595</p>
         </div>
 
         {/* Main Content */}

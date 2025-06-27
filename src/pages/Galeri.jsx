@@ -12,9 +12,13 @@ const Card = ({ title, description, src, path }) => (
     </div>
     <div className="p-4">
       <p className="text-gray-600 text-sm mb-2">{description}</p>
-      <Link to={path} className="text-green-500 font-medium hover:underline">
+      <Link
+        to={path}
+        className="text-green-500 font-bold transition-colors duration-300 hover:text-green-950 inline-block"
+      >
         Lihat Foto
       </Link>
+
     </div>
   </div>
 );
@@ -22,22 +26,19 @@ const Card = ({ title, description, src, path }) => (
 const Galeri = () => {
   const data = [
     {
-      title: "Guru",
-      description: "Beberapa Foto Guru SMP Negeri 1 Cibadak",
-      src: "/images/bgHome.jpg", // Ganti dengan URL gambar
+      description: "Beberapa Foto Guru  MTs Miftahul Anwar",
+      src: "/images/lampiran01.jpg", // Ganti dengan URL gambar
       path: "/galeriGuru", // Tautan untuk halaman GaleriGuru
     },
     {
-      title: "Sanlat",
-      description: "Beberapa Foto Ketika Sanlat Murid-Murid SMP Negeri 1 Cibadak",
-      src: "https://via.placeholder.com/400x200",
-      path: "/galeri/sanlat", // Tambahkan path sesuai kebutuhan
+      description: "Foto Murid-Murid MTs Miftahul Anwar",
+      src: "/images/lampiran03.jpg",
+      path: "/galeriSiswa", // Tambahkan path sesuai kebutuhan
     },
     {
-      title: "Kunjungan Disdik",
-      description: "Beberapa Foto Kunjungan dari Dinas Pendidikan SMP Negeri 1 Cibadak",
-      src: "https://via.placeholder.com/400x200",
-      path: "/galeri/kunjungan-disdik", // Tambahkan path sesuai kebutuhan
+      description: "Foto Kegiatan Di  MTs Miftahul Anwar",
+      src: "/images/pramuka.jpg",
+      path: "/galeriKegiatan", // Tambahkan path sesuai kebutuhan
     },
     // Tambahkan item lainnya sesuai kebutuhan
   ];
